@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -24,6 +26,7 @@ public class ImagePagerAdapter extends PagerAdapter {
 	Context mContext;
 	ImageLoader imageLoader;
 	MyViewPager mViewPager;
+	PhotoViewAttacher mAttacher;
 	public ImagePagerAdapter(ArrayList<HashMap<String, Object>> list,Context context,MyViewPager viewPager) {
 		this.list=list;
 		this.mContext=context;
@@ -47,8 +50,10 @@ public class ImagePagerAdapter extends PagerAdapter {
 		ImageView iv=new ImageView(mContext);
 		iv.setScaleType(ScaleType.CENTER);
 		iv.setImageURI(Uri.parse("file:/"+path));
+		
 		imageLoader.displayImage("file:/"+path, iv);
 		//iv.setImageBitmap(bitmap);
+		mAttacher=new PhotoViewAttacher(iv);
 		
 		view.addView(iv);
 		mViewPager.setViewForPosition(position, iv);
