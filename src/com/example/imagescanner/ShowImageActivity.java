@@ -26,6 +26,7 @@ public class ShowImageActivity extends ActionBarActivity {
 		ImagePagerAdapter adapter=new ImagePagerAdapter(picList, getBaseContext(),vpImages);
 		vpImages.setAdapter(adapter);
 		vpImages.setCurrentItem(pagerPosition);
+		getActionBar().hide();
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

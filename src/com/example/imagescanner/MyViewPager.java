@@ -1,13 +1,21 @@
 package com.example.imagescanner;
 
+import java.lang.ref.SoftReference;
+import java.net.CacheRequest;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.WeakHashMap;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.R.transition;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.v4.util.LruCache;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MyViewPager extends ViewPager {
 	float mTrans;
@@ -15,7 +23,9 @@ public class MyViewPager extends ViewPager {
 	View mLeftView;
 	View mRightView;
 	float mScale;
-	private HashMap<Integer, View> mChildViews=new LinkedHashMap<Integer,View>();
+//	private LruCache<Integer, View> mLruCache=new LruCache<Integer, View>(4*1024*1024);
+	private WeakHashMap<Integer, View> mChildViews=new WeakHashMap<Integer,View>();
+			
 	
 	public MyViewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -50,7 +60,9 @@ public class MyViewPager extends ViewPager {
 	}
 
 	private View findViewFromObject(int position) {
-		return mChildViews.get(position);
+		View view=mChildViews.get(position);
+		
+		return view;
 	}
 
 	private boolean isSmall(float offSet) {

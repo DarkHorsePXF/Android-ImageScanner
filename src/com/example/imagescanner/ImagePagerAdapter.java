@@ -8,6 +8,8 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,6 +20,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.AbsoluteLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
@@ -27,11 +31,25 @@ public class ImagePagerAdapter extends PagerAdapter {
 	ImageLoader imageLoader;
 	MyViewPager mViewPager;
 	PhotoViewAttacher mAttacher;
+	DisplayImageOptions options;
+//	DisplayImageOptions options=new DisplayImageOptions.Builder()
+//			.cacheInMemory(false)
+//			.showImageOnFail(R.drawable.ic_error)
+//			.showStubImage(R.drawable.ic_stub)
+//			.showImageForEmptyUri(R.drawable.ic_empty)
+//			
+//			.build();
+			
+	
 	public ImagePagerAdapter(ArrayList<HashMap<String, Object>> list,Context context,MyViewPager viewPager) {
 		this.list=list;
 		this.mContext=context;
 		imageLoader=ImageLoader.getInstance();
 		this.mViewPager=viewPager;
+		options=new DisplayImageOptions.Builder()
+			.cacheInMemory(true)
+			.cacheOnDisc(true)
+			.build();
 	}
 
 	@Override
@@ -42,7 +60,6 @@ public class ImagePagerAdapter extends PagerAdapter {
 
 	@Override
 	public Object instantiateItem(ViewGroup view, int position) {
-		AlertUtil.alert(mContext, "开始加载");
 		String path=list.get(position).get("path").toString();
 		System.out.println(path);
 		//Bitmap bitmap=BitmapFactory.decodeFile(path);
@@ -50,8 +67,7 @@ public class ImagePagerAdapter extends PagerAdapter {
 		ImageView iv=new ImageView(mContext);
 		iv.setScaleType(ScaleType.CENTER);
 		iv.setImageURI(Uri.parse("file:/"+path));
-		
-		imageLoader.displayImage("file:/"+path, iv);
+		imageLoader.displayImage("file:/"+path, iv,options);
 		//iv.setImageBitmap(bitmap);
 		mAttacher=new PhotoViewAttacher(iv);
 		
