@@ -1,7 +1,11 @@
-package com.example.imagescanner;
+package com.example.imagescanner.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.example.imagescanner.R;
+import com.example.imagescanner.adapter.ImagePagerAdapter;
+import com.example.imagescanner.widget.MyViewPager;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;

@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.util;
 
 import android.content.Context;
 import android.widget.Toast;

@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.adapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
+import com.example.imagescanner.widget.MyViewPager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;

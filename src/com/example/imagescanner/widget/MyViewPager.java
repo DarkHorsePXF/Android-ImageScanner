@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.widget;
 
 import java.lang.ref.SoftReference;
 import java.net.CacheRequest;

@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.imageloader;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.util;
 
 import java.io.FileDescriptor;
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package com.example.imagescanner;
+package com.example.imagescanner.adapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +11,8 @@ import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.example.imagescanner.R;
+import com.example.imagescanner.imageloader.ImageLoaderFactory;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;

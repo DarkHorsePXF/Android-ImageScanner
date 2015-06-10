@@ -1,10 +1,12 @@
-package com.example.imagescanner;
+package com.example.imagescanner.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.example.imagescanner.R;
+import com.example.imagescanner.adapter.ImageLoaderAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
